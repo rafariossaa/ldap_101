@@ -1,0 +1,6 @@
+dn: cn=user01,ou=users,dc=example,dc=org
+cn: User1
+sn: Bar
+objectClass: inetOrgPerson
+userPassword: bitnami
+uid: user01

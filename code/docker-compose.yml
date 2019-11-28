@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  ldap:
+    image: 'ldap_demo'
+    entrypoint: tail -f /dev/null
+    ports:
+      - '389:389'
+    volumes:
+      - ./scripts:/scripts
+
+  phpldap:
+    image: osixia/phpldapadmin:0.9.0
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=ldap://ldap
+    ports:
+      - 80:80
+      - 443:443

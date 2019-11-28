@@ -1,0 +1,4 @@
+dn: cn=readers,ou=users,dc=example,dc=org
+cn: readers
+objectClass: groupOfNames
+member: cn=user01,ou=users,dc=example,dc=org

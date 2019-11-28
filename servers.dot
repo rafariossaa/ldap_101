@@ -1,0 +1,50 @@
+digraph G {
+
+  node0 [label = "", height=.3, width=.3];
+  node1 [label = "", height=.3, width=.3];
+  node2 [label = "", height=.3, width=.3];
+  node3 [label = "", height=.3, width=.3];
+  node4 [label = "", height=.3, width=.3];
+  node5 [label = "", height=.3, width=.3];
+  node6 [label = "", height=.3, width=.3];
+  node7 [label = "", height=.3, width=.3];
+  node8 [label = "", height=.3, width=.3];
+  node9 [label = "", height=.3, width=.3];
+  node10 [label = "", height=.3, width=.3];
+  
+
+  subgraph cluster0 {
+      node [style=filled, color=white];
+      style=filled;
+      color=lightgrey;
+      "node0" -> "node1";
+      "node0" -> "node2";
+      label = "LDAP Server 1";
+      labelloc="top";
+  }
+
+  subgraph cluster1 {
+      node [style=filled, color=white];
+      style=filled;
+      color=lightgrey;
+  "node1" -> "node3";
+  "node3" -> "node4";
+  "node4" -> "node5";
+  "node4" -> "node6";
+      label = "LDAP Server 2";
+      labelloc="bottom";
+  }
+  
+  subgraph cluster2 {
+      node [style=filled, color=white];
+      style=filled;
+      color=lightgrey;
+  "node2" -> "node7";
+  "node2" -> "node8" -> "node9" -> "node10";
+      label = "LDAP Server 3";
+      labelloc="botom";
+  }
+  
+  
+   
+}

@@ -1,0 +1,8 @@
+digraph G {
+  "dc=com" -> "dc=bitnami" -> "ou=Users" -> "uid=rafael";
+  "ou=Users" -> "uid=juanariza";
+  "ou=Users" -> "uid=jota";
+  "dc=bitnami" -> "ou=Teams";
+  "ou=Teams" -> "cn=content"
+  "ou=Teams" -> "cn=content-pro"
+}

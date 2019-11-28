@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  ldap:
+    image: 'ldap_demo'
+    #entrypoint: tail -f /dev/null
+    entrypoint: /usr/sbin/slapd -u ldap -h "ldapi:/// ldap:///" -d 1
+    #entrypoint: /usr/sbin/slapd -u ldap -h "ldapi:/// ldap:/// ldaps:///" -d 1
+    ports:
+      - '389:389'
+    volumes:
+      - ./scripts:/scripts
+
+#  phpldap:
+#    image: osixia/phpldapadmin:0.9.0
+#    environment:
+#      - PHPLDAPADMIN_LDAP_HOSTS=ldap://ldap
+#    ports:
+#      - 80:80
+#      - 443:443
+
+  postgresql:
+    image: bitnami/postgresql:11
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRESQL_USERNAME=user01
+      - POSTGRESQL_PASSWORD=bitnami
+      - POSTGRESQL_DATABASE=my_database
+#      - POSTGRESQL_ENABLE_LDAP=yes
+      - POSTGRESQL_LDAP_SERVER=ldap
+      - POSTGRESQL_LDAP_PREFIX=cn=
+      - POSTGRESQL_LDAP_SUFFIX=,ou=users,dc=example,dc=org
+
